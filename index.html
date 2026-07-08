@@ -6,356 +6,343 @@
     <title>Certairis LLC | Federal Procurement & Logistics</title>
     <style>
         :root {
-            --primary: #0f172a;
-            --secondary: #1e3a8a;
-            --accent: #b45309;
-            --light: #f8fafc;
-            --dark: #334155;
-            --border: #e2e8f0;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --primary-color: #0b2240; /* Deep Navy */
+            --secondary-color: #8c7641; /* Muted Gold */
+            --accent-color: #d11a2a; /* Crimson */
+            --text-color: #222222;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--primary);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
         }
 
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 2rem 1rem;
-            border-bottom: 4px solid var(--accent);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .header-grid {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .logo h1 {
-            font-size: 2.2rem;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-
-        .logo span {
-            color: #fbbf24;
-        }
-
-        .header-meta {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            border-left: 3px solid #fbbf24;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(30, 58, 138, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%231e293b" width="100" height="100"/><path d="M0 0l100 100M100 0L0 100" stroke="%23334155" stroke-width="1"/></svg>');
-            color: white;
-            padding: 4rem 1rem;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 2.5rem 1.5rem;
             text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
         }
 
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .hero p {
-            max-width: 700px;
-            margin: 0 auto 2rem auto;
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        header p {
             font-size: 1.1rem;
+            margin: 0 0 1.5rem 0;
             color: #cbd5e1;
         }
 
-        .badges {
+        .badge-container {
             display: flex;
-            justify-content: center;
-            gap: 1rem;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
 
         .badge {
-            background-color: var(--accent);
-            color: white;
-            padding: 0.5rem 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
             font-weight: bold;
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 2px;
         }
 
-        .badge.pending {
-            background-color: #475569;
-            border: 1px dashed #cbd5e1;
+        .badge-active {
+            background-color: #10b981; /* Emerald Green */
+            color: #ffffff;
+        }
+
+        .badge-cert {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+        }
+
+        .badge-card {
+            background-color: #3b82f6; /* Blue */
+            color: #ffffff;
         }
 
         main {
-            padding: 3rem 1rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .hero {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .hero h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.75rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        h3 {
-            color: var(--secondary);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0.5rem;
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            border: 1px solid var(--border);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
-        .core-list {
-            list-style: none;
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
         }
 
-        .core-list li {
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .card h4 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        .card p, .card ul {
+            margin: 0;
+            padding: 0;
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            list-style-type: none;
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.25rem;
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
         }
 
-        .core-list li::before {
-            content: "✓";
+        .card li::before {
+            content: "▪";
+            color: var(--secondary-color);
             position: absolute;
             left: 0;
-            color: var(--accent);
-            font-weight: bold;
         }
 
-        .code-table {
+        table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 1rem;
-        }
-
-        .code-table th, .code-table td {
-            text-align: left;
-            padding: 0.75rem;
-            border-bottom: 1px solid var(--border);
             font-size: 0.9rem;
         }
 
-        .code-table th {
-            background-color: var(--light);
-            color: var(--dark);
-            font-weight: 600;
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .code-badge {
-            font-family: monospace;
-            background: var(--light);
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            border: 1px solid var(--border);
+        th {
+            background-color: #f8fafc;
+            color: var(--primary-color);
             font-weight: bold;
         }
 
-        .contact-method {
-            margin-bottom: 1.5rem;
+        .profile-table td {
+            padding: 0.5rem 0;
         }
 
-        .contact-method label {
-            display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--dark);
-            font-weight: 600;
-        }
-
-        .contact-method p {
-            font-size: 1.1rem;
-            color: var(--primary);
-            font-weight: 500;
+        .profile-table td:first-child {
+            font-weight: bold;
+            color: #64748b;
+            width: 40%;
         }
 
         footer {
-            background-color: var(--primary);
-            color: #94a3b8;
+            background-color: var(--primary-color);
+            color: #cbd5e1;
+            padding: 2rem 1.5rem;
             text-align: center;
-            padding: 2rem 1rem;
             font-size: 0.85rem;
-            margin-top: 4rem;
-            border-top: 1px solid #1e293b;
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .contact-email {
+            font-weight: bold;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 1.5rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container header-grid">
-            <div class="logo">
-                <h1>CERTAIRIS <span>LLC</span></h1>
-            </div>
-            <div class="header-meta">
-                <strong>GSA/SAM Status:</strong> Submitted & Pending Validation<br>
-                <strong>UEI:</strong> DBSSBG6DE3F4 | <strong>CAGE:</strong> [Pending Assignment]
+        <div class="header-container">
+            <h1>Certairis LLC</h1>
+            <p>Federal Supply Chain Solutions & Technology Procurement</p>
+            <div class="badge-container">
+                <div class="badge badge-active">SAM.gov Status: Active</div>
+                <div class="badge badge-cert">SBA Certified SDVOSB</div>
+                <div class="badge badge-card">GPC Authorized</div>
             </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>Federal Supply Chain Solutions & Technology Procurement</h2>
+    <main>
+        <section class="hero">
+            <h2>Mission-Critical Supply & Logistics</h2>
             <p>Providing streamlined, reliable logistics, mission-critical technology routing, and analytical consulting services to the Department of Veterans Affairs, Department of Defense, and civil federal agencies.</p>
-            <div class="badges">
-                <div class="badge">SBA SDVOSB Eligible</div>
-                <div class="badge">Vetted Domestic LLC</div>
-                <div class="badge pending">SAM.gov Registration Active Soon</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <main class="container">
         <div class="grid">
-            
-            <div class="content-panel">
-                <div class="card">
-                    <h3>Core Competencies</h3>
-                    <p style="margin-bottom: 1.5rem;">Certairis LLC functions as a highly precise corporate broker and logistics conduit link. We deliver commercial-off-the-shelf (COTS) enterprise hardware and clinical apparatus to government deployment sites through validated tier-1 manufacturer distribution frameworks.</p>
-                    <ul class="core-list">
-                        <li><strong>Information Technology Infrastructure:</strong> Direct deployment routing of compute servers, secure localized storage hardware, productivity network appliances, and workplace workstations.</li>
-                        <li><strong>Clinical Medical Diagnostics:</strong> Sourcing and supply management of modern diagnostic equipment, clinical procedure configurations, and medical-surgical hardware platforms.</li>
-                        <li><strong>Data & Environmental Consulting:</strong> Providing agile technical data analysis, surveying management coordination, and general environmental system optimization support.</li>
-                    </ul>
-                </div>
+            <section class="card">
+                <h3>Core Competencies</h3>
+                <p>Certairis LLC functions as a highly precise corporate broker and logistics conduit link. We deliver commercial-off-the-shelf (COTS) enterprise hardware and clinical apparatus to government deployment sites through validated tier-1 manufacturer distribution frameworks.</p>
+                
+                <h4>Information Technology Infrastructure</h4>
+                <p>Direct deployment routing of compute servers, secure localized storage hardware, productivity network appliances, and workplace workstations.</p>
 
-                <div class="card">
-                    <h3>Registered NAICS & Product Service Codes</h3>
-                    <p style="font-size: 0.9rem; color: var(--dark);">Our entity registration profile is built to accurately process simplified acquisitions, direct GPC micro-purchases, and dedicated socio-economic set-aside solicitations.</p>
-                    
-                    <table class="code-table">
-                        <thead>
-                            <tr>
-                                <th>Code Type</th>
-                                <th>Identifier</th>
-                                <th>Official Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>NAICS</td>
-                                <td><span class="code-badge">334111</span></td>
-                                <td>Electronic Computer Manufacturing</td>
-                            </tr>
-                            <tr>
-                                <td>NAICS</td>
-                                <td><span class="code-badge">334510</span></td>
-                                <td>Electromedical & Electrotherapeutic Apparatus</td>
-                            </tr>
-                            <tr>
-                                <td>NAICS</td>
-                                <td><span class="code-badge">541620</span></td>
-                                <td>Environmental Consulting Services</td>
-                            </tr>
-                            <tr>
-                                <td>PSC</td>
-                                <td><span class="code-badge">7E20</span></td>
-                                <td>IT and Telecom - End User: Hardware & Productivity Tools</td>
-                            </tr>
-                            <tr>
-                                <td>PSC</td>
-                                <td><span class="code-badge">7B22</span></td>
-                                <td>IT and Telecom - Compute: Servers (Hardware)</td>
-                            </tr>
-                            <tr>
-                                <td>PSC</td>
-                                <td><span class="code-badge">6515</span></td>
-                                <td>Medical and Surgical Instruments, Equipment, and Supplies</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                <h4>Clinical Medical Diagnostics</h4>
+                <p>Sourcing and supply management of modern diagnostic equipment, clinical procedure configurations, and medical-surgical hardware platforms.</p>
 
-            <div class="sidebar-panel">
-                <div class="card" style="border-top: 4px solid var(--secondary);">
-                    <h3>Corporate Profile</h3>
-                    
-                    <div class="contact-method">
-                        <label>Legal Business Name</label>
-                        <p>Certairis LLC</p>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <label>Corporate Structure</label>
-                        <p>Single-Member LLC (Virginia Registered)</p>
-                    </div>
+                <h4>Data & Environmental Consulting</h4>
+                <p>Providing agile technical data analysis, surveying management coordination, and general environmental system optimization support.</p>
+            </section>
 
-                    <div class="contact-method">
-                        <label>Primary Location</label>
-                        <p>Chesapeake / Hampton Roads, VA</p>
-                    </div>
+            <section class="card">
+                <h3>Federal Codes & Registration</h3>
+                <p>Our entity registration profile is built to accurately process simplified acquisitions, direct GPC micro-purchases, and dedicated socio-economic set-aside solicitations.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Code</th>
+                            <th>Official Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>NAICS</td>
+                            <td><strong>334510</strong></td>
+                            <td>Electromedical & Electrotherapeutic Apparatus (Primary)</td>
+                        </tr>
+                        <tr>
+                            <td>NAICS</td>
+                            <td><strong>334111</strong></td>
+                            <td>Electronic Computer Manufacturing</td>
+                        </tr>
+                        <tr>
+                            <td>NAICS</td>
+                            <td><strong>541620</strong></td>
+                            <td>Environmental Consulting Services</td>
+                        </tr>
+                        <tr>
+                            <td>PSC</td>
+                            <td><strong>7E20</strong></td>
+                            <td>IT/End User: Workspace & Productivity Tool (Hw)</td>
+                        </tr>
+                        <tr>
+                            <td>PSC</td>
+                            <td><strong>7B22</strong></td>
+                            <td>IT/Compute: Servers (Hardware)</td>
+                        </tr>
+                        <tr>
+                            <td>PSC</td>
+                            <td><strong>6515</strong></td>
+                            <td>Medical Instruments, Equipment & Supplies</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-                    <div class="contact-method">
-                        <label>Government Credit Cards</label>
-                        <p>Accepted (GPC Protocols Authorized)</p>
-                    </div>
-                </div>
+            <section class="card">
+                <h3>Corporate Profile</h3>
+                <table class="profile-table">
+                    <tbody>
+                        <tr>
+                            <td>Legal Name:</td>
+                            <td>Certairis LLC</td>
+                        </tr>
+                        <tr>
+                            <td>Socio-Economic:</td>
+                            <td>SBA-Certified SDVOSB</td>
+                        </tr>
+                        <tr>
+                            <td>UEI:</td>
+                            <td><code>DBSSBG6DE3F4</code></td>
+                        </tr>
+                        <tr>
+                            <td>CAGE Code:</td>
+                            <td><code>[Your CAGE Code Here]</code></td>
+                        </tr>
+                        <tr>
+                            <td>Primary Location:</td>
+                            <td>Chesapeake / Hampton Roads, VA</td>
+                        </tr>
+                        <tr>
+                            <td>Payment Terms:</td>
+                            <td>Government Purchase Cards (GPC) Accepted</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                <div class="card" style="border-top: 4px solid var(--accent);">
-                    <h3>Contact Information</h3>
-                    <p style="font-size: 0.85rem; color: var(--dark); margin-bottom: 1rem;">Direct line for Contracting Officers, Material Coordinators, and Enterprise Program Reps.</p>
-                    
-                <div class="contact-method">
-                    <label>Contact</label>
-                    <p>Walter Williams</p>
-                </div>
-
-                    <div class="contact-method">
-                        <label>Official Email</label>
-                        <p style="font-size: 1rem; font-family: monospace;">consulting@certairis.com</p>
-                    </div>
-
-                </div>
-            </div>
-
+                <h4>Direct Contact</h4>
+                <p style="margin-top: 0.5rem;">
+                    <strong>Walter G. Williams Jr.</strong>, Managing Member<br>
+                    Phone: 757-351-9372<br>
+                    Official Email: <a href="mailto:contracting@certairis.com" class="contact-email">contracting@certairis.com</a>
+                </p>
+            </section>
         </div>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Certairis LLC. All Rights Reserved. Sourced items comply with the Buy American Act and Trade Agreements Act (TAA) frameworks where applicable.</p>
-            <p style="font-size: 0.75rem; margin-top: 0.5rem; color: #64748b;">Primary Facility Address Registered: Chesapeake, Virginia, United States.</p>
-        </div>
+        <p>Sourced items comply with the Buy American Act and Trade Agreements Act (TAA) frameworks where applicable.</p>
+        <p>Primary Facility Address Registered: Chesapeake, Virginia, United States. © 2026 Certairis LLC. All Rights Reserved.</p>
     </footer>
 
 </body>
